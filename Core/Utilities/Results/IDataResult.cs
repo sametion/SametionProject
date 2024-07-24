@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Business.Abstract
+namespace Core.Utilities.Results
 {
-    internal interface ProductService
+    public interface IDataResult<T>:IResult
     {
+        T Data { get; }
     }
 }

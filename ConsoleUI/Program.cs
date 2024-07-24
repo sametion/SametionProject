@@ -33,10 +33,19 @@ namespace ConsoleUI
             //{
             //    Console.WriteLine(item.ProductName);
             //}
-            foreach(var product in productManager.GetProductDetails())
+            var result= productManager.GetProductDetails();
+            if (result.IsSuccess) 
             {
-                Console.WriteLine(product.ProductName+ " / "+product.CategoryName);
+                foreach (var product in result.Data)
+                {
+                    Console.WriteLine(product.ProductName + " / " + product.CategoryName);
+                }
             }
+            else
+            {
+                Console.WriteLine(result.Message);
+            }
+         
         }
     }
 }
